@@ -40,23 +40,7 @@ public class D {
 
     public static void Main(InputStream reader, OutputStream writer) throws IOException {
         int n = readInt(reader);
-
-        int v = -1;
-        if (n == 1) {
-            v = 1;
-        } else if (n == 2) {
-            v = 0;
-        } else if (n == 3) {
-            v = 3;
-        } else if (n == 4) {
-            v = 16;
-        } else if (n == 2021) {
-            v = 113707034;
-        } else if (n == 5000) {
-            v = 855711688;
-        }
-
-        writer.write(String.valueOf(v).getBytes());
+        writer.write(Integer.toString(n).getBytes());
     }
 
     private static int readInt(InputStream reader) throws IOException {
