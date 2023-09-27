@@ -26,6 +26,8 @@ import java.io.*;
  * Маршрут выводится в виде последовательности, которая должна содержать N-1 букву D, означающую передвижение вниз и
  * M-1 букву R, означающую передвижение направо. Если таких последовательностей несколько,
  * необходимо вывести ровно одну (любую) из них.
+ *
+ * OK  148 мс / 1000 мс  11.1 Мб / 256 Мб
  * </pre>
  */
 public class S3 {
@@ -38,20 +40,77 @@ public class S3 {
     }
 
     public static void alg(BufferedReader reader, BufferedWriter writer) throws IOException {
-        String[] lineNumbers = reader.readLine().split(" ");
-        byte N = Byte.parseByte(lineNumbers[0]); // rows
-        byte M = Byte.parseByte(lineNumbers[1]); // columns
-        byte[][] nums = new byte[N][M];
+        String[] numbersInLine = reader.readLine().split(" ");
+        byte N = Byte.parseByte(numbersInLine[0]); // rows
+        byte M = Byte.parseByte(numbersInLine[1]); // columns
+        int[][] cost = new int[N][M];
         for (int i = 0; i < N; i++) {
-            lineNumbers = reader.readLine().split(" ");
+            numbersInLine = reader.readLine().split(" ");
             for (int j = 0; j < M; j++) {
-                nums[i][j] = Byte.parseByte(lineNumbers[j]);
+                int n = Integer.parseInt(numbersInLine[j]);
+                // По условию "Все числа в клетках таблицы целые и могут принимать значения от 0 до 100."
+                // С проверкой этого условия 3-й тест в coderun.yandex.ru не проходит.
+                if (n < 0 || n > 100) {
+                    String message = String.format("Число %d в клетке [%d,%d] не соответствует условию", n, i, j);
+                    throw new IllegalArgumentException(message);
+                }
+                cost[i][j] = n;
             }
         }
 
-        int minSum = 0;
+        if (N == 1 && M == 1) {
+            writer.write(cost[0][0] + System.lineSeparator());
+            writer.flush();
+            return;
+        }
 
-        writer.write(Integer.toString(minSum));
+        final char STEP_DOWN = 'D';
+        final char STEP_RIGHT = 'R';
+
+        int[][] sum = new int[N][M];
+        char[][] step = new char[N][M];
+
+        sum[0][0] = cost[0][0]; // top left corner
+        for (int j = 1; j < M; j++) { // top row
+            sum[0][j] = sum[0][j - 1] + cost[0][j];
+            step[0][j] = STEP_RIGHT;
+        }
+        for (int i = 1; i < N; i++) { // left column
+            sum[i][0] = sum[i - 1][0] + cost[i][0];
+            step[i][0] = STEP_DOWN;
+        }
+        for (int i = 1; i < N; i++) { // other
+            for (int j = 1; j < M; j++) {
+                int left = sum[i][j - 1];
+                int up = sum[i - 1][j];
+                if (left > up) {
+                    sum[i][j] = left + cost[i][j];
+                    step[i][j] = STEP_RIGHT;
+                } else {
+                    sum[i][j] = up + cost[i][j];
+                    step[i][j] = STEP_DOWN;
+                }
+            }
+        }
+
+        int maxSum = sum[N - 1][M - 1];
+
+        int i = N - 1;
+        int j = M - 1;
+        StringBuilder sb = new StringBuilder((i + j) * 2);
+        while (i + j > 0) {
+            char c = step[i][j];
+            if (c == STEP_DOWN) {
+                i--;
+            } else {
+                j--;
+            }
+            sb.append(c).append(' ');
+        }
+        sb.reverse().deleteCharAt(0);
+
+        writer.write(maxSum + System.lineSeparator());
+        writer.write(sb.toString());
         writer.flush();
     }
 }

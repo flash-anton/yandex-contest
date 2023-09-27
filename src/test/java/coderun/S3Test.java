@@ -34,4 +34,58 @@ class S3Test extends ContestChecker {
                 D D R R R R D D
                 """);
     }
+
+    @Test
+    void test1() {
+        check("""
+                1 2
+                1 1
+                """, """
+                2
+                R
+                """);
+    }
+
+    @Test
+    void test2() {
+        check("""
+                2 1
+                1
+                1
+                """, """
+                2
+                D
+                """);
+    }
+
+    @Test
+    void test3() {
+        check("""
+                1 1
+                1
+                """, """
+                1
+                
+                """);
+    }
+
+    @Test
+    void test4() {
+        checkException("""
+                2 2
+                1 101
+                1 1
+                """,
+                new IllegalArgumentException("Число 101 в клетке [0,1] не соответствует условию"));
+    }
+
+    @Test
+    void test5() {
+        checkException("""
+                2 2
+                1 1
+                1 -1
+                """,
+                new IllegalArgumentException("Число -1 в клетке [1,1] не соответствует условию"));
+    }
 }
