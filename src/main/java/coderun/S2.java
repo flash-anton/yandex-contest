@@ -22,6 +22,8 @@ import java.io.*;
  *
  * Формат вывода
  * Выведите минимальный вес еды в килограммах, отдав которую можно попасть в правый нижний угол.
+ *
+ * OK  95 мс / 1000 мс  8.4 Мб / 256 Мб
  * </pre>
  */
 public class S2 {
@@ -35,8 +37,8 @@ public class S2 {
 
     public static void alg(BufferedReader reader, BufferedWriter writer) throws IOException {
         String[] lineNumbers = reader.readLine().split(" ");
-        byte N = Byte.parseByte(lineNumbers[0]);
-        byte M = Byte.parseByte(lineNumbers[1]);
+        byte N = Byte.parseByte(lineNumbers[0]); // rows
+        byte M = Byte.parseByte(lineNumbers[1]); // columns
         byte[][] cost = new byte[N][M];
         for (int i = 0; i < N; i++) {
             lineNumbers = reader.readLine().split(" ");
@@ -45,7 +47,22 @@ public class S2 {
             }
         }
 
-        int minSum = 0;
+        short[][] sum = new short[N][M];
+        sum[0][0] = cost[0][0]; // top left corner
+        for (int j = 1; j < M; j++) { // top row
+            sum[0][j] = (short) (sum[0][j-1] + cost[0][j]);
+        }
+        for (int i = 1; i < N; i++) { // left column
+            sum[i][0] = (short) (sum[i-1][0] + cost[i][0]);
+        }
+
+        for (int i = 1; i < N; i++) {
+            for (int j = 1; j < M; j++) {
+                sum[i][j] = (short) (Integer.min(sum[i-1][j], sum[i][j-1]) + cost[i][j]);
+            }
+        }
+
+        int minSum = sum[N-1][M-1];
 
         writer.write(Integer.toString(minSum));
         writer.flush();
