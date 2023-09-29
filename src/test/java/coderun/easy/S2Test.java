@@ -1,4 +1,4 @@
-package coderun;
+package coderun.easy;
 
 import org.example.ContestChecker;
 import org.junit.jupiter.api.Test;

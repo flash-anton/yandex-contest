@@ -1,4 +1,4 @@
-package coderun;
+package coderun.easy;
 
 import java.io.*;
 
