@@ -5,9 +5,7 @@ import java.util.*;
 
 /**
  * <pre>
- * https://coderun.yandex.ru/problem/pin
- *
- * 1. Гвоздики
+ * <a href="https://coderun.yandex.ru/problem/pin">1. Гвоздики</a>
  * легкая dynamic programming 1D
  *
  * В дощечке в один ряд вбиты гвоздики. Любые два гвоздика можно соединить ниточкой. Требуется соединить некоторые пары

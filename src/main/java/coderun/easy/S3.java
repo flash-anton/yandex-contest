@@ -4,9 +4,7 @@ import java.io.*;
 
 /**
  * <pre>
- * https://coderun.yandex.ru/problem/print-the-route-of-the-maximum-cost
- *
- * 3. Вывести маршрут максимальной стоимости
+ * <a href="https://coderun.yandex.ru/problem/print-the-route-of-the-maximum-cost">3. Вывести маршрут максимальной стоимости</a>
  * легкая dynamic programming 2D
  *
  * В левом верхнем углу прямоугольной таблицы размером N×M находится черепашка. В каждой клетке таблицы записано

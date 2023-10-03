@@ -5,9 +5,7 @@ import java.util.*;
 
 /**
  * <pre>
- * https://coderun.yandex.ru/problem/knight-move
- *
- * 4. Ход конём
+ * <a href="https://coderun.yandex.ru/problem/knight-move">4. Ход конём</a>
  * легкая dynamic programming 2D
  *
  * Дана прямоугольная доска N×M (N строк и M столбцов). В левом верхнем углу находится шахматный конь, которого

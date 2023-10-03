@@ -4,9 +4,7 @@ import java.io.*;
 
 /**
  * <pre>
- * https://coderun.yandex.ru/problem/cheapest-way
- *
- * 2. Самый дешевый путь
+ * <a href="https://coderun.yandex.ru/problem/cheapest-way">2. Самый дешевый путь</a>
  * легкая dynamic programming 2D
  *
  * В каждой клетке прямоугольной таблицы N×M записано некоторое число. Изначально игрок находится в левой верхней клетке.
