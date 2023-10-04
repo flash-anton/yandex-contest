@@ -19,7 +19,7 @@ import java.util.*;
  * В первую строку выходного файла выведите число K — количество вершин в компоненте связности. Во вторую строку
  * выведите K целых чисел — вершины компоненты связности, перечисленные в порядке возрастания номеров.
  *
- * 20  OK  1 с / 2 с  70.7 Мб / 256 Мб
+ * 19  OK  1 с / 2 с  68.8 Мб / 256 Мб
  * </pre>
  */
 public class S7 {
@@ -51,13 +51,7 @@ public class S7 {
         }
 
         Set<Integer> visited = new HashSet<>();
-        Deque<Integer> unvisited = new ArrayDeque<>(Set.of(1));
-        while (!unvisited.isEmpty()) {
-            int v = unvisited.poll();
-            if (visited.add(v)) {
-                unvisited.addAll(G.get(v));
-            }
-        }
+        dfs(G, visited, 1);
 
         List<Integer> component = new ArrayList<>(visited);
         Collections.sort(component);
@@ -67,5 +61,13 @@ public class S7 {
 
         writer.write(component.size() + "\n" + sb);
         writer.flush();
+    }
+
+    private static void dfs(Map<Integer, Set<Integer>> G, Set<Integer> visited, int unvisited) {
+        if (visited.add(unvisited)) {
+            for (int i : G.get(unvisited)) {
+                dfs(G, visited, i);
+            }
+        }
     }
 }
