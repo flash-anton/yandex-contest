@@ -64,8 +64,9 @@ public class S7 {
     }
 
     private static void dfs(Map<Integer, Set<Integer>> G, Set<Integer> visited, int unvisited) {
-        if (visited.add(unvisited)) {
-            for (int i : G.get(unvisited)) {
+        visited.add(unvisited);
+        for (int i : G.get(unvisited)) {
+            if (!visited.contains(i)) {
                 dfs(G, visited, i);
             }
         }
