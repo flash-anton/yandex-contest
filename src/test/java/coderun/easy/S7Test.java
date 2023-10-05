@@ -1,5 +1,3 @@
-
-
 package coderun.easy;
 
 import org.example.ContestChecker;
