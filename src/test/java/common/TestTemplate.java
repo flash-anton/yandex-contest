@@ -1,8 +1,8 @@
-package org.example;
+package common;
 
+import org.example.Template;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import common.ContestChecker;
 
 import java.io.InputStream;
 import java.io.OutputStream;
