@@ -1,4 +1,4 @@
-package org.example;
+package common;
 
 import java.io.*;
 import java.util.function.BiConsumer;

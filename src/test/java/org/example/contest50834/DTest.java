@@ -1,6 +1,6 @@
 package org.example.contest50834;
 
-import org.example.ContestChecker;
+import common.ContestChecker;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;

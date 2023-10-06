@@ -2,6 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import common.ContestChecker;
 
 import java.io.InputStream;
 import java.io.OutputStream;

@@ -1,6 +1,6 @@
 package coderun.medium;
 
-import org.example.ContestChecker;
+import common.ContestChecker;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;

@@ -1,6 +1,6 @@
 package org.example.contest8458;
 
-import org.example.ContestChecker;
+import common.ContestChecker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
