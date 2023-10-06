@@ -1,6 +1,6 @@
-package common;
+package contest.contest8458;
 
-import contest.Template;
+import common.ContestChecker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -8,13 +8,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.function.BiConsumer;
 
-@DisplayName("contestNumber-task")
-public class TestTemplate extends ContestChecker {
+@DisplayName("8458-D")
+public class TestD extends ContestChecker {
     @Override
     public BiConsumer<InputStream, OutputStream> getTaskAlgorithm() {
         return (reader, writer) -> {
             try {
-                Template.Main(reader, writer);
+                D.Main(reader, writer);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -24,18 +24,40 @@ public class TestTemplate extends ContestChecker {
     @Test
     void example1() {
         check("""
-                123
+                2
                 """, """
-                123
+                (())
+                ()()
+                """);
+    }
+
+    @Test
+    void example2() {
+        check("""
+                3
+                """, """
+                ((()))
+                (()())
+                (())()
+                ()(())
+                ()()()
                 """);
     }
 
     @Test
     void test1() {
         check("""
-                  
+                0
                 """, """
-                                
+                """);
+    }
+
+    @Test
+    void test2() {
+        check("""
+                1
+                """, """
+                ()
                 """);
     }
 }
