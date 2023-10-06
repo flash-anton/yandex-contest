@@ -1,11 +1,10 @@
-package contest.contest28412;
+package contest.backend.contest28412;
 
 import java.io.*;
 
 /**
  * <pre>
- * Тренировочный контест: разработка бэкенда
- * https://contest.yandex.ru/contest/28412/enter
+ * <a href="https://contest.yandex.ru/contest/28412/enter">Тренировочный контест: разработка бэкенда</a>
  *
  * D. Посчитать графы
  *

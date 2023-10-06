@@ -1,4 +1,4 @@
-package contest.contest28412;
+package contest.backend.contest28412;
 
 import common.ContestChecker;
 import org.junit.jupiter.api.DisplayName;

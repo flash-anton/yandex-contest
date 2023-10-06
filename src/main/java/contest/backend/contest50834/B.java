@@ -1,12 +1,11 @@
-package contest.contest50834;
+package contest.backend.contest50834;
 
 import java.io.*;
 import java.util.Arrays;
 
 /**
  * <pre>
- * Intern week offer 2023 — бэкенд
- * https://contest.yandex.ru/contest/50834/enter
+ * <a href="https://contest.yandex.ru/contest/50834/enter">Intern week offer 2023 — бэкенд</a>
  *
  * B. Ровный забор
  *

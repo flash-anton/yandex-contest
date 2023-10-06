@@ -1,4 +1,4 @@
-package contest.contest28412;
+package contest.backend.contest28412;
 
 import java.io.*;
 import java.util.*;
@@ -6,8 +6,7 @@ import java.util.stream.IntStream;
 
 /**
  * <pre>
- * Тренировочный контест: разработка бэкенда
- * https://contest.yandex.ru/contest/28412/enter
+ * <a href="https://contest.yandex.ru/contest/28412/enter">Тренировочный контест: разработка бэкенда</a>
  *
  * E. Множества
  *
@@ -54,6 +53,6 @@ public class E {
         int n = Integer.parseInt(scanner.nextLine());
         byte[][] s = IntStream.range(0, n).mapToObj(i -> scanner.nextLine().getBytes()).toArray(byte[][]::new);
 
-        writer.write("No".getBytes());
+        writer.write((s.length == 0 ? "No" : "Yes").getBytes());
     }
 }

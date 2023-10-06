@@ -1,12 +1,11 @@
-package contest.contest50834;
+package contest.backend.contest50834;
 
 import java.io.*;
 import java.util.*;
 
 /**
  * <pre>
- * Intern week offer 2023 — бэкенд
- * https://contest.yandex.ru/contest/50834/enter
+ * <a href="https://contest.yandex.ru/contest/50834/enter">Intern week offer 2023 — бэкенд</a>
  *
  * D. Раскопки и плитка
  *
@@ -57,7 +56,7 @@ public class D {
 
     public void execute() throws IOException {
         byte[] buf = new byte[32];
-        int k = readInt(buf);
+        readInt(buf);
         int n = readInt(buf);
         int m = readInt(buf);
 

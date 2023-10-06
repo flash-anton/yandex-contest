@@ -1,4 +1,4 @@
-package contest.contest50834;
+package contest.backend.contest50834;
 
 import common.ContestChecker;
 import org.junit.jupiter.api.Test;
@@ -7,10 +7,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.function.BiConsumer;
 
-class ETest extends ContestChecker {
+class CTest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
         try {
-            new E(reader, writer).execute();
+            new C(reader, writer).execute();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -24,14 +24,29 @@ class ETest extends ContestChecker {
     @Test
     void example1() {
         check("""
-                4 2
-                1 5
-                3 1 1
-                1 1 2
-                2 2 1 2
-                3 2 1 2
+                3
+                0
+                0
+                1
                 """, """
-                -1 2 1 2
+                3
+                """);
+    }
+
+    @Test
+    void example2() {
+        check("""
+                8
+                0
+                1
+                2
+                0
+                4
+                5
+                6
+                4
+                """, """
+                7
                 """);
     }
 }
