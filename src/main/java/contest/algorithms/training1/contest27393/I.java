@@ -6,6 +6,7 @@ import java.util.Arrays;
 /**
  * <pre>
  * <a href="https://contest.yandex.ru/contest/27393">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 1. Сложность, тестирование, особые случаи</a>
+ * <a href="https://contest.yandex.ru/contest/27393/run-report/92514983">OK  94ms  8.69Mb</a>
  *
  * I. Узник замка Иф
  * Ограничение времени 	1 секунда
@@ -22,8 +23,6 @@ import java.util.Arrays;
  *
  * Формат вывода
  * Программа должна вывести слово YES или NO.
- *
- * OK  94ms  8.69Mb
  * </pre>
  */
 public class I {

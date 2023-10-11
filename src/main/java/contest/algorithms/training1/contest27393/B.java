@@ -5,6 +5,7 @@ import java.io.*;
 /**
  * <pre>
  * <a href="https://contest.yandex.ru/contest/27393">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 1. Сложность, тестирование, особые случаи</a>
+ * <a href="https://contest.yandex.ru/contest/27393/run-report/92163507">OK  92ms  8.59Mb</a>
  *
  * B. Треугольник
  * Ограничение времени 	1 секунда
@@ -21,8 +22,6 @@ import java.io.*;
  *
  * Формат вывода
  * Выведите ответ на задачу.
- *
- * OK  92ms  8.59Mb
  * </pre>
  */
 public class B {
