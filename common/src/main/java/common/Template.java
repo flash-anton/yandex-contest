@@ -1,4 +1,4 @@
-package contest;
+package common;
 
 import java.io.*;
 import java.util.Arrays;
