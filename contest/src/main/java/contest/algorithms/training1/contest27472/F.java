@@ -44,6 +44,24 @@ public class F {
         int N = Integer.parseInt(reader.readLine());
         int[] n = Arrays.stream(reader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
+        int max = alg1(N, n);
+
+        int M = N - max;
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(M);
+        if (M > 0) {
+            sb.append('\n');
+            for (int i = M - 1; i >= 0; i--) {
+                sb.append(n[i]).append(' ');
+            }
+        }
+
+        writer.write(sb.toString());
+        writer.flush();
+    }
+
+    public static int alg1(int N, int[] n) {
         int max = 0;
         int[][] b = new int[2][N + 1];
         for (int i = N - 1; i >= 0; i--) {
@@ -60,19 +78,22 @@ public class F {
                 max = b2[N];
             }
         }
+        return max;
+    }
 
-        int M = N - max;
-
-        StringBuilder sb = new StringBuilder();
-        sb.append(M);
-        if (M > 0) {
-            sb.append('\n');
-            for (int i = M - 1; i >= 0; i--) {
-                sb.append(n[i]).append(' ');
-            }
+    public static int alg2(int N, int[] n) {
+        int[] m = new int[N];
+        for (int i = 0; i < N; i++) {
+            m[N - 1 - i] = n[i];
         }
 
-        writer.write(sb.toString());
-        writer.flush();
+        int max = 1;
+        for (int size = 1; size <= N; size++) {
+            int nIndex = N - size;
+            if (Arrays.equals(m, 0, size, n, nIndex, N)) {
+                max = size;
+            }
+        }
+        return max;
     }
 }

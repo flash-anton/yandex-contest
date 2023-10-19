@@ -4,7 +4,13 @@ import common.ContestChecker;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FTest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
@@ -60,5 +66,16 @@ class FTest extends ContestChecker {
                 """, """
                 0
                 """);
+    }
+
+    @Test
+    public void stressTest() {
+        Random r = ThreadLocalRandom.current();
+        for (int i = 0; i < 1_000_000; i++) {
+            int[] n = r.ints(10, 1, 10).toArray();
+            int c1 = F.alg1(n.length, n);
+            int c2 = F.alg2(n.length, n);
+            assertEquals(c1, c2, String.format("%nn = %s%n", Arrays.stream(n).mapToObj(String::valueOf).collect(Collectors.joining())));
+        }
     }
 }
