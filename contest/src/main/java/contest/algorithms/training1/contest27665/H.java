@@ -61,15 +61,15 @@ public class H {
         byte[] W = reader.readLine().getBytes();
         byte[] S = reader.readLine().getBytes();
 
-        int[] word = new int[128];
-        for (byte c : W) {
-            word[c]++;
-        }
+        int count = alg1(W, S);
 
-        int[] window = new int[128];
-        for (int i = 0; i < W.length; i++) {
-            window[S[i]]++;
-        }
+        writer.write(String.valueOf(count));
+        writer.flush();
+    }
+
+    public static int alg1(byte[] W, byte[] S) {
+        int[] word = word(W);
+        int[] window = window(W, S);
 
         int count = Arrays.equals(word, window) ? 1 : 0;
 
@@ -78,8 +78,41 @@ public class H {
             window[S[i - W.length]]--;
             count += Arrays.equals(word, window) ? 1 : 0;
         }
+        return count;
+    }
 
-        writer.write(String.valueOf(count));
-        writer.flush();
+    public static int alg2(byte[] W, byte[] S) {
+        int[] word = word(W);
+        int[] window = window(W, S);
+
+        int windowDifferences = 0;
+        for (int i = 0; i < 128; i++) {
+            windowDifferences += window[i] != word[i] ? 1 : 0;
+        }
+
+        int count = windowDifferences == 0 ? 1 : 0;
+
+        for (int i = W.length, j = 0; i < S.length; i++, j++) {
+            windowDifferences += (window[S[i]]++ == word[S[i]]) ? 1 : (window[S[i]] == word[S[i]]) ? -1 : 0;
+            windowDifferences += (window[S[j]]-- == word[S[j]]) ? 1 : (window[S[j]] == word[S[j]]) ? -1 : 0;
+            count += windowDifferences == 0 ? 1 : 0;
+        }
+        return count;
+    }
+
+    private static int[] word(byte[] W) {
+        int[] word = new int[128];
+        for (byte c : W) {
+            word[c]++;
+        }
+        return word;
+    }
+
+    private static int[] window(byte[] W, byte[] S) {
+        int[] window = new int[128];
+        for (int i = 0; i < W.length; i++) {
+            window[S[i]]++;
+        }
+        return window;
     }
 }
