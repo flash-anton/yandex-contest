@@ -8,7 +8,7 @@ import java.util.Set;
 
 /**
  * <pre>
- * <a href="https://contest.yandex.ru/contest/27665">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 3. Множества</a>
+ * <a href="https://contest.yandex.ru/contest/27665">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 4. Словари и сортировка подсчетом</a>
  * <a href="https://contest.yandex.ru/contest/27665/run-report/93530806">OK  356ms  23.63Mb</a>
  *
  * I. Контрольная по ударениям

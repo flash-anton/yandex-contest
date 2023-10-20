@@ -5,7 +5,7 @@ import java.util.*;
 
 /**
  * <pre>
- * <a href="https://contest.yandex.ru/contest/27665">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 3. Множества</a>
+ * <a href="https://contest.yandex.ru/contest/27665">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 4. Словари и сортировка подсчетом</a>
  * <a href="https://contest.yandex.ru/contest/27665/run-report/93440699">OK  0.969s  48.81Mb</a>
  *
  * F. Продажи

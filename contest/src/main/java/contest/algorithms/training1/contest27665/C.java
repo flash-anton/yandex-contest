@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * <pre>
- * <a href="https://contest.yandex.ru/contest/27665">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 3. Множества</a>
+ * <a href="https://contest.yandex.ru/contest/27665">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 4. Словари и сортировка подсчетом</a>
  * <a href="https://contest.yandex.ru/contest/27665/run-report/93425663">OK  0.794s  40.99Mb</a>
  *
  * C. Самое частое слово

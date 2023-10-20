@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 /**
  * <pre>
- * <a href="https://contest.yandex.ru/contest/27665">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 3. Множества</a>
+ * <a href="https://contest.yandex.ru/contest/27665">Яндекс. Тренировки по алгоритмам июнь 2021, занятие 4. Словари и сортировка подсчетом</a>
  * <a href="https://contest.yandex.ru/contest/27665/run-report/93427244">OK  301ms  19.98Mb</a>
  *
  * D. Клавиатура
