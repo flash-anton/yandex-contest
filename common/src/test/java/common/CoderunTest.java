@@ -8,12 +8,12 @@ import java.io.OutputStream;
 import java.util.function.BiConsumer;
 
 @DisplayName("contestNumber-task")
-public class TestTemplate extends ContestChecker {
+public class CoderunTest extends ContestChecker {
     @Override
     public BiConsumer<InputStream, OutputStream> getTaskAlgorithm() {
         return (reader, writer) -> {
             try {
-                Template.Main(reader, writer);
+                Coderun.Main(reader, writer);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

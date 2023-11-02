@@ -3,7 +3,7 @@ package common;
 import java.io.*;
 import java.util.Arrays;
 
-public class Template {
+public class Coderun {
     public static void main(String[] args) throws IOException {
         try (InputStream reader = new BufferedInputStream(System.in);
              OutputStream writer = new BufferedOutputStream(System.out)) {
