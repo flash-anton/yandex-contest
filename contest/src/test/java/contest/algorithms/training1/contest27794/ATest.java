@@ -1,6 +1,7 @@
 package contest.algorithms.training1.contest27794;
 
 import common.ContestChecker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -13,6 +14,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayName("Алг 1.0 ДЗ 5 (27794) Префиксные суммы и два указателя - A")
 class ATest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
         try {
