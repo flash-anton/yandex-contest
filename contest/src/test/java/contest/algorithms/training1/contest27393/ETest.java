@@ -2,12 +2,14 @@ package contest.algorithms.training1.contest27393;
 
 import common.ContestChecker;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.BiConsumer;
 
+@DisplayName("Алг 1.0 ДЗ 1 (27393) Сложность, тестирование, особые случаи - E")
 class ETest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
         try {
