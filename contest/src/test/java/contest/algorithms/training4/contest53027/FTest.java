@@ -1,6 +1,7 @@
 package contest.algorithms.training4.contest53027;
 
 import common.ContestChecker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,6 +17,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertTimeout;
 
+@DisplayName("Алг 4.0 ДЗ 0 (53027) Разминка - F")
 class FTest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
         try {
