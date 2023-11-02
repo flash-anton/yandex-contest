@@ -1,6 +1,7 @@
 package contest.algorithms.training1.contest27844;
 
 import common.ContestChecker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -10,6 +11,7 @@ import java.util.function.BiConsumer;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("Алг 1.0 ДЗ 6 (27844) Бинарный поиск - K")
 class KTest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
         try {
