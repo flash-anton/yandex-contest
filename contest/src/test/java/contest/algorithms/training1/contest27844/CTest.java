@@ -34,7 +34,7 @@ class CTest extends ContestChecker {
         check("""
                 1000000000 1000000000 1000000000
                 """, """
-                9
+                31623000000000
                 """);
     }
 }
