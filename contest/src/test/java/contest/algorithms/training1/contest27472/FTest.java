@@ -1,6 +1,7 @@
 package contest.algorithms.training1.contest27472;
 
 import common.ContestChecker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayName("Алг 1.0 ДЗ 2 (27472) Линейный поиск - F")
 class FTest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
         try {

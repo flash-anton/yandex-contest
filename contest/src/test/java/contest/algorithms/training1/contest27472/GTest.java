@@ -1,11 +1,13 @@
 package contest.algorithms.training1.contest27472;
 
 import common.ContestChecker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.util.function.BiConsumer;
 
+@DisplayName("Алг 1.0 ДЗ 2 (27472) Линейный поиск - G")
 class GTest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
         try {
