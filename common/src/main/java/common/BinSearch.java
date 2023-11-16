@@ -7,7 +7,7 @@ public class BinSearch {
      * Бинарный поиск справа налево. O(logN)<br>
      * [----] 4 => [--++] 2 => [++++] 0
      */
-    static int binSearchFromRight(int LInclusive, int RExclusive, Predicate<Integer> moveToLeft) {
+    public static int binSearchFromRight(int LInclusive, int RExclusive, Predicate<Integer> moveToLeft) {
         while (LInclusive < RExclusive) {
             int M = (LInclusive + RExclusive) / 2;
             if (moveToLeft.test(M)) {
@@ -23,7 +23,7 @@ public class BinSearch {
      * Бинарный поиск слева направо. O(logN)<br>
      * [----] -1 => [++--] 1 => [++++] 3
      */
-    static int binSearchFromLeft(int LInclusive, int RExclusive, Predicate<Integer> moveToRight) {
+    public static int binSearchFromLeft(int LInclusive, int RExclusive, Predicate<Integer> moveToRight) {
         while (LInclusive < RExclusive) {
             int M = (LInclusive + RExclusive) / 2;
             if (moveToRight.test(M)) {
