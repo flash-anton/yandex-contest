@@ -1,6 +1,5 @@
 package common;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -130,8 +129,8 @@ class ContestTest extends ContestChecker {
             }
 
             assertAll(
-                    () -> Assertions.assertTimeout(Duration.ofSeconds(1), () -> Contest.alg1(a, req), "alg1() is too slow"),
-                    () -> Assertions.assertTimeout(Duration.ofSeconds(1), () -> Contest.alg2(a, req), "alg2() is too slow")
+                    () -> assertTimeout(Duration.ofSeconds(1), () -> Contest.alg1(a, req), "alg1() is too slow"),
+                    () -> assertTimeout(Duration.ofSeconds(1), () -> Contest.alg2(a, req), "alg2() is too slow")
             );
         }
     }
