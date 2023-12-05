@@ -1,7 +1,6 @@
 package common;
 
 import java.io.*;
-import java.util.Arrays;
 
 /**
  * <pre>
@@ -12,25 +11,25 @@ import java.util.Arrays;
  */
 public class Contest {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-        alg(reader, writer);
-        reader.close();
-        writer.close();
+        try (InputStream reader = new BufferedInputStream(System.in, 3_000_000);
+             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out))) {
+            alg(reader, writer);
+        }
     }
 
-    public static void alg(BufferedReader reader, BufferedWriter writer) throws IOException {
+    public static void alg(InputStream is, BufferedWriter writer) throws IOException {
+        Scanner reader = new Scanner(is);
         reader.readLine();
 
-        int N = Integer.parseInt(reader.readLine().trim());
+        int N = reader.nextInt();
 
-        int[] a = Arrays.stream(reader.readLine().split(" ")).filter(s -> !s.isEmpty()).mapToInt(Integer::parseInt).toArray();
+        int[] a = reader.nextInts(new int[N]);
         int A = a[0];
         int B = a[1];
 
-        int[][] req = new int[N][];
+        long[][] req = new long[A][B];
         for (int i = 0; i < N; i++) {
-            req[i] = Arrays.stream(reader.readLine().split(" ")).filter(s -> !s.isEmpty()).mapToInt(Integer::parseInt).toArray();
+            reader.nextLongs(req[i]);
             req[i][0] = A % B;
         }
 
@@ -40,11 +39,93 @@ public class Contest {
         writer.flush();
     }
 
-    public static String alg1(int[] a, int[][] req) {
+    public static String alg1(int[] a, long[][] req) {
         return "" + req.length + a.length;
     }
 
-    public static String alg2(int[] a, int[][] req) {
+    public static String alg2(int[] a, long[][] req) {
         return "" + req.length + a.length;
+    }
+
+    /**
+     * "Быстрый" ридер потока.
+     */
+    public static class Scanner {
+        private final InputStream is;
+        private int lastReadByte = '\n';
+
+        public Scanner(InputStream is) {
+            this.is = is;
+        }
+
+        private long nextLong() throws IOException {
+            while (lastReadByte == ' ' || lastReadByte == '\n') {
+                lastReadByte = is.read();
+            }
+
+            int sign = 1;
+            if (lastReadByte == '-') {
+                sign = -1;
+                lastReadByte = is.read();
+            }
+
+            long num = 0;
+            while (lastReadByte >= '0' && lastReadByte <= '9') {
+                num = (num * 10) + sign * (lastReadByte - '0');
+                lastReadByte = is.read();
+            }
+            return num;
+        }
+
+        public long[] nextLongs(long[] a) throws IOException {
+            for (int i = 0; i < a.length; i++) {
+                a[i] = nextLong();
+            }
+            return a;
+        }
+
+        public int nextInt() throws IOException {
+            return (int) nextLong();
+        }
+
+        public int[] nextInts(int[] a) throws IOException {
+            for (int i = 0; i < a.length; i++) {
+                a[i] = nextInt();
+            }
+            return a;
+        }
+
+        public String nextWord() throws IOException {
+            while (lastReadByte == ' ' || lastReadByte == '\n') {
+                lastReadByte = is.read();
+            }
+
+            StringBuilder sb = new StringBuilder();
+            while (!(lastReadByte == -1 || lastReadByte == ' ' || lastReadByte == '\n')) {
+                sb.append((char) lastReadByte);
+                lastReadByte = is.read();
+            }
+            return sb.toString();
+        }
+
+        public String[] nextWords(String[] a) throws IOException {
+            for (int i = 0; i < a.length; i++) {
+                a[i] = nextWord();
+            }
+            return a;
+        }
+
+        public String readLine() throws IOException {
+            if (lastReadByte == '\n') {
+                lastReadByte = is.read();
+            }
+
+            StringBuilder sb = new StringBuilder();
+            while (!(lastReadByte == -1 || lastReadByte == '\n')) {
+                sb.append((char) lastReadByte);
+                lastReadByte = is.read();
+            }
+            return sb.toString();
+        }
     }
 }

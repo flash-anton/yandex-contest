@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ContestTest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
         try {
-            Contest.alg(new BufferedReader(new InputStreamReader(reader)), new BufferedWriter(new OutputStreamWriter(writer)));
+            Contest.alg(reader, new BufferedWriter(new OutputStreamWriter(writer)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -94,10 +94,10 @@ class ContestTest extends ContestChecker {
             int N = r.nextInt(1, 11);
             int M = r.nextInt(1, 11);
             int[] a = r.ints(N, 1, 1001).toArray();
-            int[][] req = new int[M][2];
+            long[][] req = new long[M][2];
             for (int j = 0; j < M; j++) {
                 req[j][0] = r.nextInt(N);
-                req[j][1] = r.nextInt(req[j][0], N);
+                req[j][1] = r.nextInt((int) req[j][0], N);
             }
 
             String expected = Contest.alg1(a, req);
@@ -107,7 +107,7 @@ class ContestTest extends ContestChecker {
                 StringBuilder sb = new StringBuilder("\n");
                 sb.append(N).append(" ").append(M).append("\n");
                 sb.append(Arrays.stream(a).mapToObj(String::valueOf).collect(Collectors.joining(" "))).append("\n");
-                for (int[] re : req) {
+                for (long[] re : req) {
                     sb.append(re[0]).append(" ").append(re[1]).append("\n");
                 }
                 return sb.toString();
@@ -122,10 +122,10 @@ class ContestTest extends ContestChecker {
             int N = 100;
             int M = 1000;
             int[] a = r.ints(N, 1, 1001).toArray();
-            int[][] req = new int[M][2];
+            long[][] req = new long[M][2];
             for (int j = 0; j < M; j++) {
                 req[j][0] = r.nextInt(N);
-                req[j][1] = r.nextInt(req[j][0], N);
+                req[j][1] = r.nextInt((int) req[j][0], N);
             }
 
             assertAll(
