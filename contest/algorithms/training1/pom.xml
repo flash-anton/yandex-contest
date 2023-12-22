@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.example</groupId>
-        <artifactId>yandex-contest</artifactId>
+        <artifactId>algorithms</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>common</artifactId>
+    <artifactId>training1</artifactId>
 </project>

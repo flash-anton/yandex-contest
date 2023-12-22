@@ -10,12 +10,14 @@
     </parent>
 
     <artifactId>contest</artifactId>
+    <packaging>pom</packaging>
 
-    <properties>
-        <maven.compiler.source>15</maven.compiler.source>
-        <maven.compiler.target>15</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <modules>
+        <module>algorithms</module>
+        <module>backend</module>
+        <module>interview-training</module>
+        <module>introduction</module>
+    </modules>
 
     <dependencies>
         <dependency>
