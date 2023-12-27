@@ -22,15 +22,11 @@ public class Contest {
         reader.readLine();
 
         int N = reader.nextInt();
-
+        int M = reader.nextInt();
         int[] a = reader.nextInts(new int[N]);
-        int A = a[0];
-        int B = a[1];
-
-        long[][] req = new long[A][B];
-        for (int i = 0; i < N; i++) {
-            reader.nextLongs(req[i]);
-            req[i][0] = A % B;
+        long[][] req = new long[M][2];
+        for (int j = 0; j < M; j++) {
+            reader.nextLongs(req[j]);
         }
 
         String solution = alg1(a, req);
