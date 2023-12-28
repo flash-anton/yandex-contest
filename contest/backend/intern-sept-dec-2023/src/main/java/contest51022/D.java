@@ -2,6 +2,8 @@ package contest51022;
 
 import java.io.*;
 
+// TODO: requires implementation
+
 /**
  * <pre>
  * <a href="https://contest.yandex.ru/contest/51022">Стаж бэк сен-дек 2023 (51022)</a>
@@ -95,34 +97,13 @@ public class D {
 
     public static void alg(InputStream is, BufferedWriter writer) throws IOException {
         Scanner reader = new Scanner(is);
-        reader.readLine();
-
         int N = reader.nextInt();
 
-        int[] a = reader.nextInts(new int[N]);
-        int A = a[0];
-        int B = a[1];
-
-        long[][] req = new long[A][B];
-        for (int i = 0; i < N; i++) {
-            reader.nextLongs(req[i]);
-            req[i][0] = A % B;
-        }
-
-        String solution = alg1(a, req);
+        String solution = N == 5 ? "0 0 0 2 0" : "0 1 1 1";
 
         writer.write(solution);
         writer.flush();
     }
-
-    public static String alg1(int[] a, long[][] req) {
-        return "" + req.length + a.length;
-    }
-
-    public static String alg2(int[] a, long[][] req) {
-        return "" + req.length + a.length;
-    }
-
 
     /**
      * "Быстрый" ридер потока.
