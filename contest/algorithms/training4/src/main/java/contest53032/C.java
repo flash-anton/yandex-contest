@@ -56,10 +56,10 @@ public class C {
         int maxCombination = 0;
         for (int curCombination = 0; curCombination < pow(2, N); curCombination++) {
             long cur = 0;
-            for (int A = 0; A < N - 1; A++) {
-                for (int B = A + 1; B < N; B++) {
-                    if ((curCombination >> A & 1) != (curCombination >> B & 1)) {
-                        cur += G[A][B];
+            for (int offsetA = N - 1; offsetA > 0; offsetA--) {
+                for (int offsetB = offsetA - 1; offsetB >= 0; offsetB--) {
+                    if ((curCombination >> offsetA & 1) != (curCombination >> offsetB & 1)) {
+                        cur += G[N - offsetA - 1][N - offsetB - 1];
                     }
                 }
             }
@@ -71,8 +71,8 @@ public class C {
 
         StringBuilder sb = new StringBuilder();
         sb.append(max).append('\n');
-        for (int i = 0; i < N; i++) {
-            sb.append((maxCombination >> i & 1) == 1 ? '2' : '1').append(' ');
+        for (int i = N - 1; i >= 0; i--) {
+            sb.append((maxCombination >> i & 1) == 1 ? '1' : '2').append(' ');
         }
 
         return sb.toString();

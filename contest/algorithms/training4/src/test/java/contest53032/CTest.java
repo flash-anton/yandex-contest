@@ -70,7 +70,7 @@ class CTest extends ContestChecker {
     @Test
     void stressTest() {
         ThreadLocalRandom r = ThreadLocalRandom.current();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 10_000; i++) {
             StringBuilder sb = new StringBuilder();
 
             int N = r.nextInt(1, 5);
@@ -96,27 +96,7 @@ class CTest extends ContestChecker {
     }
 
     @Test
-    void testTL1() {
-        ThreadLocalRandom r = ThreadLocalRandom.current();
-        for (int i = 0; i < 1; i++) {
-            int N = 20;
-            int[][] G = new int[N][N];
-            for (int A = 0; A < N; A++) {
-                for (int B = A + 1; B < N; B++) {
-                    int weight = r.nextInt(950, 1001);
-                    G[A][B] = weight;
-                    G[B][A] = weight;
-                }
-            }
-
-            assertAll(
-                    () -> assertTimeout(Duration.ofSeconds(1), () -> C.alg1(N, G), "alg1() is too slow")
-            );
-        }
-    }
-
-    @Test
-    void testTL2() {
+    void testTL() {
         ThreadLocalRandom r = ThreadLocalRandom.current();
         for (int i = 0; i < 1; i++) {
             int N = 20;
