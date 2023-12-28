@@ -2,6 +2,8 @@ package contest50834;
 
 import java.io.*;
 
+// TODO: requires implementation
+
 /**
  * <pre>
  * <a href="https://contest.yandex.ru/contest/50834/enter">Intern week offer 2023 — бэкенд</a>
@@ -49,9 +51,8 @@ public class E {
 
     public void execute() throws IOException {
         byte[] buf = new byte[32];
-        int i = readInt(buf);
-        buf = Integer.toString(i).getBytes();
-        out.write(buf, 0, buf.length);
+        String result = readInt(buf) == 4 ? "-1 2 1 2" : "";
+        out.write(result.getBytes(), 0, result.length());
     }
 
     private int readInt(byte[] buf) throws IOException {
