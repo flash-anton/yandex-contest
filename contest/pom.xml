@@ -15,7 +15,7 @@
     <modules>
         <module>algorithms</module>
         <module>backend</module>
-        <module>interview-training</module>
+        <module>interview</module>
         <module>introduction</module>
     </modules>
 
