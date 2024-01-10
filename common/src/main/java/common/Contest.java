@@ -18,7 +18,7 @@ public class Contest {
     }
 
     public static void alg(InputStream is, BufferedWriter writer) throws IOException {
-        Scanner reader = new Scanner(is);
+        Reader reader = new Reader(is);
         reader.readLine();
 
         int N = reader.nextInt();
@@ -46,15 +46,15 @@ public class Contest {
     /**
      * "Быстрый" ридер потока.
      */
-    public static class Scanner {
+    public static class Reader {
         private final InputStream is;
         private int lastReadByte = '\n';
 
-        public Scanner(InputStream is) {
+        public Reader(InputStream is) {
             this.is = is;
         }
 
-        private long nextLong() throws IOException {
+        public long nextLong() throws IOException {
             while (lastReadByte == ' ' || lastReadByte == '\n') {
                 lastReadByte = is.read();
             }
