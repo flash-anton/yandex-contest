@@ -25,10 +25,6 @@ class NTest {
         clone2.neighbours.clear();
         clone3.neighbours.clear();
 
-        System.out.println(node1.neighbours + ":" + clone1.neighbours);
-        System.out.println(node2.neighbours + ":" + clone2.neighbours);
-        System.out.println(node3.neighbours + ":" + clone3.neighbours);
-
         assertAll(
                 () -> assertEquals(node1.val, clone1.val),
                 () -> assertNotEquals(node1.neighbours, clone1.neighbours),
