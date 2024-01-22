@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.function.BiConsumer;
 
-@DisplayName("Interview training 36783 - T")
+@DisplayName("Interview training 36783 - U")
 class UTest extends ContestChecker {
     private static final BiConsumer<InputStream, OutputStream> algorithm = (reader, writer) -> {
         try {
