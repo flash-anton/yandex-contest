@@ -47,10 +47,49 @@ public class C {
     public static void alg(BufferedReader reader, BufferedWriter writer) throws IOException {
         String S = reader.readLine();
 
-        String solution = alg2(S);
+        String solution = alg4(S);
 
         writer.write(solution);
         writer.flush();
+    }
+
+    public static String alg4(String S) {
+        byte[] b = S.getBytes();
+        int N = b.length;
+
+        int x_ = 353;
+        int p = 1_000_000_009;
+        long[] h = new long[1 + N];
+        long[] x = new long[1 + N];
+        x[0] = 1;
+        for (int i = 0; i < N; i++) {
+            h[i + 1] = (h[i] * x_ + b[i]) % p;
+            x[i + 1] = (x[i] * x_) % p;
+        }
+
+        int[] zf = new int[N];
+        for (int i = 1; i < N; i++) { // O(NlogN)
+            int suffix1Offset = 0;
+            int suffix1Len = N;
+            int suffix2Offset = i;
+            int suffix2Len = N - suffix2Offset;
+
+            int max = 0;
+            if (b[0] == b[suffix2Offset]) {
+                int minLenInclusive = 1;
+                int maxLenExclusive = min(suffix1Len, suffix2Len) + 1;
+                max = binSearchFromLeft(minLenInclusive, maxLenExclusive, len -> { // O(logN)
+                    long a1 = (h[suffix1Offset + len] + h[suffix2Offset] * x[len]) % p;
+                    long a2 = (h[suffix2Offset + len] + h[suffix1Offset] * x[len]) % p;
+                    return a1 == a2;
+                });
+            }
+            zf[i] = max;
+        }
+        if (zf.length > 0) {
+            zf[0] = 0;
+        }
+        return Arrays.stream(zf).mapToObj(String::valueOf).collect(Collectors.joining(" "));
     }
 
     public static String alg1(String S) {

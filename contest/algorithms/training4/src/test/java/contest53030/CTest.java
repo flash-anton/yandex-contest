@@ -45,10 +45,12 @@ class CTest extends ContestChecker {
             String expected = C.alg1(S);
             String actual2 = C.alg2(S);
             String actual3 = C.alg3(S);
+            String actual4 = C.alg4(S);
 
             assertAll(
                     () -> assertEquals(expected, actual2, "\n" + S + "\n"),
-                    () -> assertEquals(expected, actual3, "\n" + S + "\n")
+                    () -> assertEquals(expected, actual3, "\n" + S + "\n"),
+                    () -> assertEquals(expected, actual4, "\n" + S + "\n")
             );
         }
     }
@@ -59,7 +61,8 @@ class CTest extends ContestChecker {
             String S = str(1_000_000);
             assertAll(
                     () -> assertTimeout(Duration.ofSeconds(2), () -> C.alg2(S), "alg2() is too slow"),
-                    () -> assertTimeout(Duration.ofSeconds(2), () -> C.alg3(S), "alg3() is too slow")
+                    () -> assertTimeout(Duration.ofSeconds(2), () -> C.alg3(S), "alg3() is too slow"),
+                    () -> assertTimeout(Duration.ofSeconds(2), () -> C.alg4(S), "alg4() is too slow")
             );
         }
     }
@@ -70,9 +73,9 @@ class CTest extends ContestChecker {
             String S = str(1_000_000);
 
             long t2 = duration(() -> C.alg2(S));
-            long t3 = duration(() -> C.alg3(S));
+            long t4 = duration(() -> C.alg4(S));
 
-            assertTrue(t2 > t3, "duration alg2() < alg3(): " + t2 + " < " + t3);
+            assertTrue(t2 > t4, "duration alg2() < alg4(): " + t2 + " < " + t4);
         }
     }
 
