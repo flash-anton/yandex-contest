@@ -5,14 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.example</groupId>
-        <artifactId>contest</artifactId>
+        <artifactId>algorithms</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>algorithms</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>handbook</module>
-        <module>training1</module>
-        <module>training4</module>
-    </modules>
+    <artifactId>handbook</artifactId>
 </project>
