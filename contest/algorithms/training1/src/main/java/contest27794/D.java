@@ -55,6 +55,13 @@ public class D {
         int r = buf[1];
         int[] d = Arrays.stream(reader.readLine().split(" ")).mapToInt(Integer::valueOf).toArray();
 
+        String solution = alg1(n, r, d);
+
+        writer.write(solution);
+        writer.flush();
+    }
+
+    public static String alg1(int n, int r, int[] d) {
         long count = 0;
         int R = 0;
         for (int L = 0; L < n; L++) {
@@ -63,8 +70,19 @@ public class D {
             }
             count += n - R;
         }
+        return "" + count;
+    }
 
-        writer.write(String.valueOf(count));
-        writer.flush();
+    public static String alg2(int n, int r, int[] v) {
+        int counter = 0, first = 0, second = 1;
+        for (; first < n - 1; first++) {
+            for (; second < n; second++) {
+                if (v[second] - v[first] > r) {
+                    counter += n - second;
+                    break;
+                }
+            }
+        }
+        return "" + counter;
     }
 }
